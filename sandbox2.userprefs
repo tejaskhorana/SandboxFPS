@@ -1,0 +1,19 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/NetworkManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/PlayerNetworkMover.cs" Line="50" Column="14" />
+      <File FileName="Assets/Scripts/NetworkManager.cs" Line="71" Column="5" />
+      <File FileName="Assets/Scripts/PlayerShooting.cs" Line="55" Column="115" />
+      <File FileName="Assets/Scripts/PlayerAnimations.cs" Line="33" Column="1" />
+      <File FileName="Assets/Imported Assets/Stealth/Done/DoneScripts/PlayerScripts/DonePlayerMovement.cs" Line="11" Column="23" />
+      <File FileName="Assets/Imported Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="221" Column="4" />
+      <File FileName="Assets/Imported Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/RigidbodyFirstPersonController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Imported Assets/Stealth/Done/DoneScripts/PlayerScripts/DonePlayerHealth.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
