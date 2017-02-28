@@ -7,6 +7,8 @@ public class PlayerShooting : MonoBehaviour {
 	public ParticleSystem muzzleFlash;
 	public Animator anim;
 	public GameObject impactPrefab;
+	public AudioSource gunShotSource;
+	public AudioClip gunShotClip;
 
 	GameObject[] impacts;
 	int currentImpact = 0;
@@ -31,6 +33,8 @@ public class PlayerShooting : MonoBehaviour {
 	void Update ()
 	{
 		if (Input.GetKeyDown(KeyCode.F) && !Input.GetKey (KeyCode.LeftShift)) {
+			gunShotSource.clip = gunShotClip;
+			gunShotSource.Play();
 			muzzleFlash.Play();
 			anim.SetTrigger("Fire");
 			shooting = true;
@@ -44,10 +48,9 @@ public class PlayerShooting : MonoBehaviour {
 			shooting = false;
 			RaycastHit hit;
 			if (Physics.Raycast (transform.position, transform.forward, out hit, 50f)) {
+				//make an RPC make a noise on all players screen
 
-				if (hit.transform.tag == "Enemy") {
-					Destroy(hit.transform.gameObject);
-				}
+
 
 				if (hit.transform.tag == "Player") {
 					//KEY TO SUCCESSFUL SHOOTING ON NETWORK

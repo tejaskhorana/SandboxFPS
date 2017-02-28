@@ -11,6 +11,8 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 	public delegate void SendMessage(string MessageOverlay);
 	public event SendMessage SendNetworkMessage;
 
+	public Texture enemyTexture;
+
 	//things to sync
 	Vector3 position;
 	Quaternion rotation;
@@ -47,6 +49,8 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 			transform.Find ("FirstPersonCharacter/GunCamera/Candy-Cane/Sights").gameObject.layer = 8;
 			transform.Find ("FirstPersonCharacter/GunCamera/Candy-Cane/Shockwave").gameObject.layer = 8;
 		} else {
+			 //access and change identifier on minimap! EDIT!
+			 transform.Find("MapViewCam/Identifier").GetComponent<MeshRenderer>().material.mainTexture = enemyTexture; 
 			 StartCoroutine("UpdateData");
 		}
 	}

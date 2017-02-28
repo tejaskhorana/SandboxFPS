@@ -67,7 +67,7 @@ public class NetworkManager : MonoBehaviour {
 		Debug.Log(rooms.Length);
 
 		foreach (RoomInfo room in rooms) {
-			roomList.text = roomList.text + room.name + "\n";
+			roomList.text = roomList.text + room.Name + "\n";
 		} 
 		Debug.Log(roomList.text);
 	}

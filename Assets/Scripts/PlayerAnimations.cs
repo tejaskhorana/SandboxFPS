@@ -27,6 +27,7 @@ public class PlayerAnimations : MonoBehaviour {
 		}
 
 		if (aim) {
+			
 			anim.SetInteger("Aim", 1);
 		} else {
 			anim.SetInteger("Aim", 0);
