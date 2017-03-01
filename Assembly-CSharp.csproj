@@ -358,6 +358,9 @@
      <Compile Include="Assets\Imported Assets\Stealth\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\Imported Assets\Stealth\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\Imported Assets\Stealth\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\Imported Assets\WarZone\Scripts\DestroyObject.cs" />
+     <Compile Include="Assets\Imported Assets\WarZone\Scripts\GunController.cs" />
+     <Compile Include="Assets\Imported Assets\WarZone\Scripts\TurretController.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimations.cs" />
      <Compile Include="Assets\Scripts\PlayerNetworkMover.cs" />

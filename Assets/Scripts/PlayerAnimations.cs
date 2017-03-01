@@ -4,8 +4,10 @@ using System.Collections;
 public class PlayerAnimations : MonoBehaviour {
 
 	public Animator anim;
+	bool crouchStatus;
 
 	void Start() {
+		crouchStatus = false;
 		anim.updateMode = AnimatorUpdateMode.UnscaledTime; 
 		anim = GetComponent<Animator>();
 	}
@@ -14,8 +16,10 @@ public class PlayerAnimations : MonoBehaviour {
 	void Update ()
 	{	
 
+		//when cleaning code, merge with PlayerNetworkMover!
 		bool sprinting = Input.GetKey (KeyCode.LeftShift);
-		bool aim = Input.GetButton("Fire2");
+		bool aim = Input.GetButton ("Fire2");
+
 
 		if (aim)
 			sprinting = false;

@@ -29,7 +29,9 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 	Animator anim;
 
 	//crouch
-	Vector3 scale;
+	float charControllerHeight;
+	Vector3 visibleCapsuleScale;
+
 
 	float smoothing = 10f;
 
@@ -43,20 +45,26 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		GameObject healthbargo = GameObject.Find ("HUD");
-		healthbargo.SetActive(true);
-		if (healthbargo != null) {
-			healthSlider = healthbargo.GetComponentInChildren<Slider>();
-		}
-		healthSlider.value = currentHealth/health;
-		
+
 
 		//anim = transform.Find ("FirstPersonCharacter/GunCamera/Candy-Cane").GetComponent<Animator>();
 		//anim.GetComponentInChildren<Animator>();
 		anim = GetComponentInChildren<Animator>();
 
 		PhotonView photonView = (PhotonView)GetComponent<PhotonView> ();
+
+
 		if (photonView.isMine) {
+
+			GameObject healthbargo = GameObject.Find ("HUD");
+			healthbargo.SetActive (true);
+			if (healthbargo != null) {
+				healthSlider = healthbargo.GetComponentInChildren<Slider> ();
+			}
+			healthSlider.value = currentHealth / health;
+
+
+
 			GetComponent<Rigidbody>().useGravity = true;
 			GetComponent<FirstPersonController> ().enabled = true;
 			GetComponentInChildren<AudioListener> ().enabled = true;
@@ -89,7 +97,10 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 			transform.rotation = rotation;
 
 			//crouch
-			transform.localScale = scale;
+			transform.FindChild("VisibilityCapsule").gameObject.transform.localScale = visibleCapsuleScale;
+			transform.GetComponent<CharacterController>().height = charControllerHeight;
+
+			//transform.localScale = scale;
 			//GetComponent<CharacterController>().height = height;
 			//GameObject.Find("VisibilityCapsule").transform.localScale = visibleScale;
 		}
@@ -101,7 +112,8 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 			anim.SetInteger("Sprint", sprint);
 
 			//crouch
-			transform.localScale = scale;
+			transform.FindChild("VisibilityCapsule").gameObject.transform.localScale = visibleCapsuleScale;
+			transform.GetComponent<CharacterController>().height = charControllerHeight;
 			//GetComponent<CharacterController>().height = height;
 			//GameObject.Find("VisibilityCapsule").transform.localScale = visibleScale;
 
@@ -125,7 +137,10 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 			stream.SendNext(anim.GetInteger("Sprint"));
 
 			//crouch
-			stream.SendNext(transform.localScale);
+			stream.SendNext(transform.FindChild("VisibilityCapsule").gameObject.transform.localScale);
+			stream.SendNext(transform.GetComponent<CharacterController>().height);
+
+			//stream.SendNext(transform.localScale);
 			//stream.SendNext(GetComponent<CharacterControwller>().height);
 			//stream.SendNext(visibilityCapsule.transform.localScale);
 		} else {
@@ -139,8 +154,9 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 			//crouch
 			//height = (float)stream.ReceiveNext();
 			//visibleScale = (Vector3)stream.ReceiveNext();
-			scale = (Vector3)stream.ReceiveNext();
-
+			//scale = (Vector3)stream.ReceiveNext();
+			visibleCapsuleScale = (Vector3)stream.ReceiveNext();
+			charControllerHeight = (float)stream.ReceiveNext();
 			//goes on to update after that! :)
 
 		}

@@ -107,22 +107,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
 		//crouching
         private void crouch() {
         	//safety
-			if (transform.localScale.y > 0.5) {
 				//GetComponent<CharacterController>().height = GetComponent<CharacterController>().height/2;
 				//visibilityCapsule.transform.localScale -= new Vector3(0, visibilityCapsule.transform.localScale.y/2, 0);
-				transform.localScale -= new Vector3(0, transform.localScale.y/2, 0);
-			}
+				transform.GetComponent<CharacterController>().height -= transform.GetComponent<CharacterController>().height/2;
+				transform.FindChild("VisibilityCapsule").gameObject.transform.localScale -= new Vector3(0,transform.FindChild("VisibilityCapsule").gameObject.transform.localScale.y/2,0);
+				//transform.localScale -= new Vector3(0, transform.localScale.y/2, 0);
+				//transform.position -= new Vector3(0, transform.position.y/2, 0);
+				//transform.Find("FirstPersonCharacter/GunCamera/Candy-Cane").transform.localScale += new Vector3(transform.Find("FirstPersonCharacter/GunCamera/Candy-Cane").transform.localScale.x, 0, 0);
         }
 
 		//crouching
         private void uncrouch ()
 		{
 			//safety
-			if (transform.localScale.y < 1) {
 				//GetComponent<CharacterController>().height = GetComponent<CharacterController>().height*2;
 				//visibilityCapsule.transform.localScale += new Vector3(0, visibilityCapsule.transform.localScale.y, 0);
-				transform.localScale += new Vector3(0, transform.localScale.y, 0);
-			}
+				transform.GetComponent<CharacterController>().height += transform.GetComponent<CharacterController>().height;
+				transform.FindChild("VisibilityCapsule").gameObject.transform.localScale += new Vector3(0,transform.FindChild("VisibilityCapsule").gameObject.transform.localScale.y,0);
+
+				//transform.localScale += new Vector3(0, transform.localScale.y, 0);
+				//transform.position += new Vector3(0, transform.position.y, 0);
+				//transform.Find("FirstPersonCharacter/GunCamera/Candy-Cane").transform.localScale -= new Vector3(transform.Find("FirstPersonCharacter/GunCamera/Candy-Cane").transform.localScale.x/2, 0, 0);
 		}
 
         private void FixedUpdate ()
