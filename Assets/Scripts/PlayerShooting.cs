@@ -7,7 +7,7 @@ public class PlayerShooting : MonoBehaviour {
 	public ParticleSystem muzzleFlash;
 	public Animator anim;
 	public GameObject impactPrefab;
-	public AudioSource gunShotSource;
+	public AudioSource audioSource;
 	public AudioClip gunShotClip;
 
 	GameObject[] impacts;
@@ -33,12 +33,16 @@ public class PlayerShooting : MonoBehaviour {
 	void Update ()
 	{
 		if (Input.GetKeyDown(KeyCode.F) && !Input.GetKey (KeyCode.LeftShift)) {
-			gunShotSource.clip = gunShotClip;
-			gunShotSource.Play();
+			playGunShotClip();
 			muzzleFlash.Play();
 			anim.SetTrigger("Fire");
 			shooting = true;
 		}
+	}
+
+	void playGunShotClip() {
+			audioSource.clip = gunShotClip;
+			audioSource.Play();
 	}
 
 	//do all physics in here
@@ -48,11 +52,9 @@ public class PlayerShooting : MonoBehaviour {
 			shooting = false;
 			RaycastHit hit;
 			if (Physics.Raycast (transform.position, transform.forward, out hit, 50f)) {
-				//make an RPC make a noise on all players screen
 
 
-
-				if (hit.transform.tag == "Player") {
+				if (hit.transform.tag == "Enemy") {
 					//KEY TO SUCCESSFUL SHOOTING ON NETWORK
 					//run on computer of person shooting
 					hit.transform.GetComponent<PhotonView>().RPC("GetShot", PhotonTargets.All, damage, PhotonNetwork.player.NickName);

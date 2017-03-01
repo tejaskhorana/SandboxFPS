@@ -8,6 +8,7 @@ TagManager:
   - MainLight
   - Fader
   - Enemy
+  - Ally
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - Gun
   - SpawnPoint
   - Player
-  - 
-  - 
+  - OtherGun
+  - Enemy
   - 
   - 
   - 

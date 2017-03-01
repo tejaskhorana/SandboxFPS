@@ -362,6 +362,7 @@
      <Compile Include="Assets\Scripts\PlayerAnimations.cs" />
      <Compile Include="Assets\Scripts\PlayerNetworkMover.cs" />
      <Compile Include="Assets\Scripts\PlayerShooting.cs" />
+     <Compile Include="Assets\Scripts\TheNetworkManager.cs" />
      <None Include="Assets\Imported Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Imported Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Imported Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

@@ -13,6 +13,7 @@ public class NetworkManager : MonoBehaviour {
 	[SerializeField] Camera sceneCamera;
 
 	[SerializeField] GameObject serverWindow;
+	[SerializeField] GameObject healthBar;
 	[SerializeField] InputField username;
 	[SerializeField] InputField roomName;
 	[SerializeField] InputField roomList;
@@ -27,7 +28,7 @@ public class NetworkManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		//healthBar.SetActive(false);
 		photonView = GetComponent<PhotonView>();
 		messages = new Queue<string>(messageCount);
 
@@ -43,15 +44,16 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	// Update is called once per frame
+
 	IEnumerator UpdateConnectionString ()
 	{
-		
 		//update text while coroutine is running
 		while (true) {
 			connectionText.text = PhotonNetwork.connectionStateDetailed.ToString();
 			yield return null;
 		}
 	}
+
 
 	void OnJoinedLobby ()
 	{
@@ -64,12 +66,9 @@ public class NetworkManager : MonoBehaviour {
 
 		//only works in lobby
 		RoomInfo[] rooms = PhotonNetwork.GetRoomList();
-		Debug.Log(rooms.Length);
-
 		foreach (RoomInfo room in rooms) {
 			roomList.text = roomList.text + room.Name + "\n";
 		} 
-		Debug.Log(roomList.text);
 	}
 
 
@@ -84,9 +83,10 @@ public class NetworkManager : MonoBehaviour {
 	void OnJoinedRoom ()
 	{
 		serverWindow.SetActive(false);
-		StartCoroutine("UpdateConnectionString");
-		//text disappears once connected to room!
+		//healthBar.SetActive(true);
+		StopCoroutine("UpdateConnectionString");
 		connectionText.text = "";
+		//text disappears once connected to room!
 		StartSpawnProcess(0f);
 	}
 

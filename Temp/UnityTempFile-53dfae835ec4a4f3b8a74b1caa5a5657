@@ -406,5 +406,6 @@
 'Assets/Scripts/PlayerAnimations.cs'
 'Assets/Scripts/PlayerNetworkMover.cs'
 'Assets/Scripts/PlayerShooting.cs'
+'Assets/Scripts/TheNetworkManager.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'
