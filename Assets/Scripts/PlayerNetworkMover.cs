@@ -77,9 +77,18 @@ public class PlayerNetworkMover : Photon.MonoBehaviour {
 
 			transform.Find("VisibilityCapsule").gameObject.tag = "Ally";
 			transform.gameObject.tag = "Ally";
-			transform.Find ("FirstPersonCharacter/GunCamera/Candy-Cane").gameObject.layer = 8;
-			transform.Find ("FirstPersonCharacter/GunCamera/Candy-Cane/Sights").gameObject.layer = 8;
-			transform.Find ("FirstPersonCharacter/GunCamera/Candy-Cane/Shockwave").gameObject.layer = 8;
+			transform.Find ("FirstPersonCharacter/GunCamera/M4A1Sopmod").gameObject.layer = 8;
+			//transform.Find ("FirstPersonCharacter/GunCamera/M4A1Sopmod/Sights").gameObject.layer = 8;
+			transform.Find ("FirstPersonCharacter/GunCamera/M4A1Sopmod/Shockwave").gameObject.layer = 8;
+			transform.Find ("FirstPersonCharacter/GunCamera/M4A1Sopmod/CSS Arms FBX").gameObject.layer = 8;
+
+			transform.Find ("FirstPersonCharacter/GunCamera/M4A1Sopmod/M4A1_Sopmod_Body").gameObject.layer = 8;
+			transform.Find ("FirstPersonCharacter/GunCamera/M4A1Sopmod/M4A1_Sopmod_Iron_Sight").gameObject.layer = 8;
+			transform.Find ("FirstPersonCharacter/GunCamera/M4A1Sopmod/M4A1_Sopmod_Magazine").gameObject.layer = 8;
+			//Fix hand clipping by using a simpler hand
+
+
+			//may need to do for rest too.
 
 		} else {
 			 //access and change identifier on minimap! EDIT!

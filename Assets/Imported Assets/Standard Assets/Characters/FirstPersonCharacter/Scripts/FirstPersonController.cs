@@ -35,6 +35,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         //crouching
 		public GameObject visibilityCapsule;
+		private bool crouchBeingClicked = false;
 
 
 
@@ -55,6 +56,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
+        	crouchBeingClicked = false;
         	m_IsWalking = true;
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
@@ -253,13 +255,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 			m_IsWalking = true;
 			// crouching edits
-			if(Input.GetButtonDown("Crouch")) {
+			bool crouchClick = Input.GetButtonDown("Crouch");
+			if(crouchClick && crouchBeingClicked == false) {
 				m_IsCrouching = !m_IsCrouching;
 				if(m_IsCrouching) {
 					crouch();
 				} else {
 					uncrouch();
 				}
+				crouchBeingClicked = true;
+			} else if (!crouchClick) {
+				crouchBeingClicked = false;
 			}
 
 			if(Input.GetKey(KeyCode.LeftShift) && !Input.GetButton("Fire2")) {

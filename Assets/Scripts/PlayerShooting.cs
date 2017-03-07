@@ -13,7 +13,7 @@ public class PlayerShooting : MonoBehaviour {
 	GameObject[] impacts;
 	int currentImpact = 0;
 	int maxImpacts = 5;
-	float damage = 25f;
+	float damage = 5f;
 
 	bool shooting = false;
 
@@ -51,7 +51,7 @@ public class PlayerShooting : MonoBehaviour {
 		if (shooting) {
 			shooting = false;
 			RaycastHit hit;
-			if (Physics.Raycast (transform.position, transform.forward, out hit, 50f)) {
+			if (Physics.Raycast (transform.position, transform.forward, out hit, 100f)) {
 
 
 				if (hit.transform.tag == "Enemy") {
