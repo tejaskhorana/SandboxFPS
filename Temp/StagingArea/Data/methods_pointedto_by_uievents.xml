@@ -1,0 +1,7 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="NetworkManager">
+			<method name="JoinRoom"/>
+		</type>
+	</assembly>
+</linker>

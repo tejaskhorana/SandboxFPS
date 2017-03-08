@@ -45,4 +45,5 @@ MonoBehaviour:
   - TaggedPlayer
   - GetShot
   - AddMessage_RPC
+  - GetHit
   DisableAutoOpenWizard: 1
