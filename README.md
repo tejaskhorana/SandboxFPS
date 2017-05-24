@@ -1,6 +1,8 @@
 # SandboxFPS
 
-FPS Game that can be played online made with Unity. Features rooms hosting games, online chat, and messages. 
+Experimenting with game development in Unity! :)
+
+FPS Game that can be played online. Features rooms hosting games, online chat, and messages. 
 
 Right Click : Aim
 F Key : Shoot
@@ -9,5 +11,4 @@ Shift: Run
 W,A,S,D: Movement
 C: Crouch
 
-For remote play, ensure the room title (seen on title screen) match on different machines.
-
+**For remote play, ensure the room title (seen on title screen) match on different machines.**
